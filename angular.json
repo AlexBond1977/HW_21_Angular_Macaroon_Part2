@@ -3,12 +3,15 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "HW_20_Angular_Macaroon": {
+    "HW_21_Angular_Macaroon": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
+      },
+      "i18n": {
+        "sourceLocale": "ru-RU"
       },
       "root": "",
       "sourceRoot": "src",
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/hw-20-angular-macaroon",
+            "outputPath": "dist/hw-21-angular-macaroon",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "HW_20_Angular_Macaroon:build:production"
+              "browserTarget": "HW_21_Angular_Macaroon:build:production"
             },
             "development": {
-              "browserTarget": "HW_20_Angular_Macaroon:build:development"
+              "browserTarget": "HW_21_Angular_Macaroon:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "HW_20_Angular_Macaroon:build"
+            "browserTarget": "HW_21_Angular_Macaroon:build"
           }
         },
         "test": {
@@ -103,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

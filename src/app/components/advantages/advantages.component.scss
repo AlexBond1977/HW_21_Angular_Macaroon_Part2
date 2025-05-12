@@ -1,0 +1,101 @@
+
+.advantage {
+  max-width: 220px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.advantage:hover .advantage-number {
+  background-color: #eba8b1;
+}
+
+.advantage:hover .advantage-number span {
+  color: #821328;
+}
+
+.advantage-number {
+  display: flex;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #821328;
+  position: relative;
+  margin-bottom: 13px;
+  transition: background-color 1s ease;
+}
+
+.advantage span {
+  font-size: 60px;
+  font-family: GilroyExtrabold, sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 45px;
+  position: absolute;
+  bottom: 0;
+  transition: color 1s ease;
+}
+
+.advantage h3 {
+  font-size: 20px;
+  font-family: GilroyExtrabold, sans-serif;
+  color: rgb(51, 25, 7);
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.advantage-text {
+  font-size: 15px;
+  font-family: GilroyMedium, sans-serif;
+  color: rgb(51, 25, 7);
+  line-height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .advantage {
+    padding: 0;
+    height: 330px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .advantage h3 {
+    height: 40px;
+    margin-top: 15px;
+  }
+
+  .advantage-number {
+    justify-self: center;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .advantage h3 {
+    margin: 0;
+  }
+
+  .advantage-text {
+    font-size: 13px;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .advantage {
+    max-width: 171px;
+  }
+
+  .advantage h3 {
+    font-size: 18px;
+  }
+
+}
+
+@media screen and (max-width: 385px) {
+  .advantage-text {
+    line-height: 19px;
+    margin-top: 10px;
+  }
+}

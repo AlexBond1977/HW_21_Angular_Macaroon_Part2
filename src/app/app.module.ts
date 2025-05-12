@@ -4,10 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
+import { AdvantagesComponent } from './components/advantages/advantages.component';
+import { ProductComponent } from './components/product/product.component';
+import { ButtonDirective } from './directives/button.directive';
+import { AdvantagesPipe } from './pipes/advantages.pipe';
+import { PhoneNumberPipe } from './pipes/phone-number.pipe';
+import { CurrencyPipe } from './pipes/currency.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdvantagesComponent,
+    ProductComponent,
+    ButtonDirective,
+    AdvantagesPipe,
+    PhoneNumberPipe,
+    CurrencyPipe
   ],
   imports: [
     BrowserModule,

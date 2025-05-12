@@ -1,13 +1,18 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductType} from "./types/product.type";
+import {AdvantagesType} from "./types/advantages.type";
+import {OrderFormType} from "./types/order-form.type";
+import {ProductService} from "./services/product.service";
+import {CartService} from "./services/cart.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [ProductService]
 })
-export class AppComponent {
-  public advantages: {title: string, description: string}[] = [
+export class AppComponent implements OnInit{
+  public advantages: AdvantagesType[] = [
     {
       title: 'Лучшие продукты',
       description: 'Мы честно готовим макаруны только из натуральных и качественных продуктов. Мы не используем консерванты, ароматизаторы и красители.'
@@ -26,30 +31,18 @@ export class AppComponent {
     }
   ]
 
-  public products: ProductType[] = [
-    {
-      image: '1.png',
-      name: 'Макарун с малиной',
-      price: '1,70 руб.',
-    },
-    {
-      image: '2.png',
-      name: 'Макарун с манго',
-      price: '1,70 руб.',
-    },
-    {
-      image: '3.png',
-      name: 'Пирог с ванилью',
-      price: '1,70 руб.',
-    },
-    {
-      image: '4.png',
-      name: 'Пирог с фисташками',
-      price: '1,70 руб.',
-    },
-  ]
+  constructor(private productService: ProductService,
+              private cartService: CartService) {
+  }
 
-  public orderFormValues: {product: string, name: string, phone: string} = {
+  public products: ProductType[] = [];
+  public quantity: number = 0;
+  public sum: number = 0;
+  ngOnInit() {
+    this.products = this.productService.getProducts();
+  }
+
+  public orderFormValues: OrderFormType = {
     product: '',
     name: '',
     phone: ''
@@ -61,11 +54,16 @@ export class AppComponent {
 
   public addToOrderForm(product: ProductType, element: HTMLElement): void {
     this.orderFormValues.product = product.name.toUpperCase();
+    this.cartService.quantity++;
+    this.quantity = this.cartService.quantity;
+    this.cartService.sum += product.price;
+    this.sum = this.cartService.sum;
     this.scrollTo(element);
+    alert(product.name + ' добавлен в корзину!')
   }
 
   public showPresent: boolean = true;
-  public companyPhone: string = '+375 (29) 368-98-68';
+  public companyPhone: string = '375293689868';
   public companyInstagram: string = 'https://www.instagram.com/';
 
   public openBurgerMenu(element: HTMLElement): void{
