@@ -20,10 +20,10 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  public addProductToCart(){
+  protected addProductToCart(){
     this.addToCartEvent.emit(this.product);
   }
 

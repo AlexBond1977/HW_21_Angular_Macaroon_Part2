@@ -12,7 +12,7 @@ import {CartService} from "./services/cart.service";
   providers: [ProductService]
 })
 export class AppComponent implements OnInit{
-  public advantages: AdvantagesType[] = [
+  protected readonly advantages: AdvantagesType[] = [
     {
       title: 'Лучшие продукты',
       description: 'Мы честно готовим макаруны только из натуральных и качественных продуктов. Мы не используем консерванты, ароматизаторы и красители.'
@@ -35,24 +35,25 @@ export class AppComponent implements OnInit{
               private cartService: CartService) {
   }
 
-  public products: ProductType[] = [];
-  public quantity: number = 0;
-  public sum: number = 0;
-  ngOnInit() {
+  protected products: ProductType[] = [];
+  protected quantity: number = 0;
+  protected sum: number = 0;
+
+  public ngOnInit() {
     this.products = this.productService.getProducts();
   }
 
-  public orderFormValues: OrderFormType = {
+  protected orderFormValues: OrderFormType = {
     product: '',
     name: '',
     phone: ''
   }
 
-  public scrollTo(element: HTMLElement): void {
+  protected scrollTo(element: HTMLElement): void {
     element.scrollIntoView({behavior: "smooth"});
   }
 
-  public addToOrderForm(product: ProductType, element: HTMLElement): void {
+  protected addToOrderForm(product: ProductType, element: HTMLElement): void {
     this.orderFormValues.product = product.name.toUpperCase();
     this.cartService.quantity++;
     this.quantity = this.cartService.quantity;
@@ -62,15 +63,15 @@ export class AppComponent implements OnInit{
     alert(product.name + ' добавлен в корзину!')
   }
 
-  public showPresent: boolean = true;
-  public companyPhone: string = '375293689868';
-  public companyInstagram: string = 'https://www.instagram.com/';
+  protected readonly showPresent: boolean = true;
+  protected readonly companyPhone: string = '375293689868';
+  protected readonly companyInstagram: string = 'https://www.instagram.com/';
 
-  public openBurgerMenu(element: HTMLElement): void{
+  protected openBurgerMenu(element: HTMLElement): void{
     element.classList.add('open');
   }
 
-  public closeBurgerMenu(element: HTMLElement): void{
+  protected closeBurgerMenu(element: HTMLElement): void{
     element.classList.remove('open');
   }
 }
