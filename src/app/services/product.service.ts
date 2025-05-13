@@ -6,7 +6,7 @@ export class ProductService {
 
   constructor() { }
 
-  getProducts(): ProductType[] {
+  public getProducts(): ProductType[] {
     return [
       {
         image: '1.png',

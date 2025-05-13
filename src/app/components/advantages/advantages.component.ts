@@ -8,8 +8,8 @@ import {AdvantagesType} from "../../types/advantages.type";
 })
 export class AdvantagesComponent implements OnInit {
 
-  @Input() advantage: AdvantagesType;
-  @Input() i: number = 0;
+  @Input() public advantage: AdvantagesType;
+  @Input() public i: number = 0;
 
   constructor() {
     this.advantage = {

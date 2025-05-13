@@ -9,7 +9,6 @@ import { ProductComponent } from './components/product/product.component';
 import { ButtonDirective } from './directives/button.directive';
 import { AdvantagesPipe } from './pipes/advantages.pipe';
 import { PhoneNumberPipe } from './pipes/phone-number.pipe';
-import { CurrencyPipe } from './pipes/currency.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { CurrencyPipe } from './pipes/currency.pipe';
     ButtonDirective,
     AdvantagesPipe,
     PhoneNumberPipe,
-    CurrencyPipe
   ],
   imports: [
     BrowserModule,

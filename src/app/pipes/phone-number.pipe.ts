@@ -5,7 +5,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class PhoneNumberPipe implements PipeTransform {
 
-    transform(value: string): string {
+    public transform(value: string): string {
         if (!value || value.length !== 12) {
             return '';
         }

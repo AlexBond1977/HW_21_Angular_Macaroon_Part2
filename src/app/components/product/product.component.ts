@@ -9,9 +9,9 @@ import {ProductType} from "../../types/product.type";
 })
 export class ProductComponent implements OnInit {
 
-  @Input() product: ProductType;
+  @Input() public product: ProductType;
 
-  @Output() addToCartEvent: EventEmitter<ProductType> = new EventEmitter<ProductType>();
+  @Output() public addToCartEvent: EventEmitter<ProductType> = new EventEmitter<ProductType>();
   constructor() {
     this.product = {
       image: '',
@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addProductToCart(){
+  public addProductToCart(){
     this.addToCartEvent.emit(this.product);
   }
 

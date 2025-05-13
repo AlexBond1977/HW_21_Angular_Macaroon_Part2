@@ -1,14 +1,14 @@
 <div class="products-item">
-  <div class="product-item-img">
-    <img src="assets/images/{{product.image}}" alt="{{product.name}}">
-  </div>
-  <div class="product-item-info">
-    <h4>{{ product.name }}</h4>
-    <div class="product-info-quantity">1 шт.</div>
-    <div class="product-info-price">{{ product.price | currency}}</div>
-    <button class="button product-button" (click) = "addProductToCart()"
-            bgButton [bgButtonColorMouseover]="'red'" [bgButtonColorFocus]="'black'">
-      Заказать
-    </button>
-  </div>
+    <div class="product-item-img">
+        <img src="assets/images/{{product.image}}" alt="{{product.name}}">
+    </div>
+    <div class="product-item-info">
+        <h4>{{ product.name }}</h4>
+        <div class="product-info-quantity">1 шт.</div>
+        <div class="product-info-price">{{ product.price.toFixed(2) | currency: 'руб.' }}</div>
+        <button class="button product-button" (click)="addProductToCart()"
+                bgButton [bgButtonColorMouseover]="'red'" [bgButtonColorFocus]="'black'">
+            Заказать
+        </button>
+    </div>
 </div>
